@@ -1,0 +1,14 @@
+# pip install git+https://github.com/aoki-h-jp/binance-bulk-downloader
+# Все качается отсюда - https://data.binance.vision/?prefix=data/futures/cm/daily/
+
+# Как правильно собирать стаканы на своей стороне:
+# Откройте подключение к Open a stream to wss://stream.binance.com:9443/ws/bnbbtc@depth
+# Собирайте в буфер информацию, которую получите оттуда
+# Получите текущую информацию (слепок) по стаканам с адреса https://www.binance.com/api/v1/depth?symbol=BNBBTC&limit=1000
+# У себя в буфере удалите (и не принимайте) все события, у которых u <= lastUpdateId слепка и u > lastUpdateId+1
+# Каждое новое событие стрима должно быть выше предыдущего u на единицу
+# Данные в каждом событии – абсолютные значения текущей цены и объема
+# Если объем 0, удалите у себя цену
+# Получение данных с 0, которых нет у вас в книге, допускается, и не является какой-либо ошибкой.
+
+Графики питон трайдинг вью, как надо - https://github.com/louisnw01/lightweight-charts-python
